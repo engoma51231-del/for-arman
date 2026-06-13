@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Arman 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+overflow:hidden;
+height:100vh;
+background:linear-gradient(135deg,#ffd6e8,#ffe7f3,#fff3f8);
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.screen{
+position:absolute;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+transition:all .9s ease;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+transform:scale(.85);
+}
+
+.card{
+width:90%;
+max-width:720px;
+background:rgba(255,255,255,.93);
+backdrop-filter:blur(8px);
+padding:40px;
+border-radius:35px;
+text-align:center;
+box-shadow:0 15px 50px rgba(255,105,180,.18);
+z-index:5;
+}
+
+.title{
+font-family:'Pacifico',cursive;
+font-size:3rem;
+color:#ff5fa2;
+margin-bottom:10px;
+}
+
+.love-title{
+font-family:'Pacifico',cursive;
+font-size:1.8rem;
+color:#ff8ab8;
+margin-bottom:15px;
+font-weight:normal;
+}
+
+.subtitle{
+color:#ff8ab8;
+font-size:1.05rem;
+margin-bottom:30px;
+}
+
+.button{
+background:#ff79b6;
+color:white;
+border:none;
+padding:18px 35px;
+border-radius:999px;
+font-size:1.1rem;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 8px 25px rgba(255,105,180,.25);
+}
+
+.button:hover{
+transform:scale(1.05);
+}
+
+.reason-box{
+background:#fff6fb;
+padding:30px;
+border-radius:25px;
+font-size:1.4rem;
+line-height:1.8;
+color:#555;
+min-height:160px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.signature{
+margin-top:20px;
+font-family:'Pacifico',cursive;
+color:#ff87b7;
+font-size:1.2rem;
+}
+
+.tomorrow{
+margin-top:20px;
+font-family:'Pacifico',cursive;
+color:#ff69b4;
+font-size:1.15rem;
+}
+
+.heart{
+position:absolute;
+bottom:-60px;
+animation:float linear infinite;
+pointer-events:none;
+opacity:.8;
+}
+
+.sparkle{
+position:absolute;
+font-size:50px;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+animation:burst 1s forwards;
+z-index:100;
+}
+
+.corner{
+position:absolute;
+font-size:80px;
+opacity:.15;
+}
+
+.c1{
+top:20px;
+left:20px;
+}
+
+.c2{
+bottom:20px;
+right:20px;
+}
+
+@keyframes burst{
+0%{
+opacity:0;
+transform:translate(-50%,-50%) scale(.2);
+}
+50%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1.5);
+}
+100%{
+opacity:0;
+transform:translate(-50%,-50%) scale(3);
+}
+}
+
+@keyframes float{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="corner c1">💖</div>
+<div class="corner c2">🌸</div>
+
+<!-- HOME SCREEN -->
+
+<div class="screen" id="home">
+
+<div class="card">
+
+<h1 class="title">For Arman 💖</h1>
+
+<h2 class="love-title">Reasons Why I Love You ♡</h2>
+
+<p class="subtitle">
+A tiny reminder that you're loved more than words can explain.
+</p>
+
+<button class="button" id="fortuneBtn">
+✨ See My Love Fortune Today ✨
+</button>
+
+</div>
+
+</div>
+
+<!-- REASON SCREEN -->
+
+<div class="screen hidden" id="fortunePage">
+
+<div class="card">
+
+<h1 class="title">💌 Dear Arman</h1>
+
+<div class="reason-box">
+<span id="reasonText"></span>
+</div>
+
+<div class="signature">
+Love, Lana 💕
+</div>
+
+<div class="tomorrow">
+🌷 Come back tomorrow for a new reason 🌷
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const reasons = [
+
+"Because your smile somehow fixes even the worst days.",
+
+"Because your hugs feel like the safest place in the world.",
+
+"Because you make ordinary moments feel special.",
+
+"Because hearing your voice instantly makes me happier.",
+
+"Because you always know how to make me laugh.",
+
+"Because life feels brighter with you in it.",
+
+"Because you're my favorite person to tell everything to.",
+
+"Because you make me feel understood.",
+
+"Because you're kind even when nobody is looking.",
+
+"Because every memory with you is my favorite memory.",
+
+"Because you make me feel loved every single day.",
+
+"Because your heart is beautiful.",
+
+"Because you make me excited about the future.",
+
+"Because you're my comfort person.",
+
+"Because being around you feels like home.",
+
+"Because you make me feel safe.",
+
+"Because your happiness matters to me.",
+
+"Because you make even boring days fun.",
+
+"Because I can always be myself with you.",
+
+"Because you make me feel lucky.",
+
+"Because you're thoughtful in ways you don't even realize.",
+
+"Because you never fail to make me smile.",
+
+"Because you believe in me.",
+
+"Because your presence alone makes things better.",
+
+"Because you're my favorite hello and hardest goodbye.",
+
+"Because you make my heart feel full.",
+
+"Because I admire the person you are.",
+
+"Because you're genuinely one of the best people I've ever known.",
+
+"Because every day with you is a gift.",
+
+"Because you're you, and that's more than enough. ❤️"
+
+];
+
+function getDailyReason() {
+
+const today = new Date();
+
+const seed =
+today.getFullYear() * 10000 +
+(today.getMonth() + 1) * 100 +
+today.getDate();
+
+return reasons[seed % reasons.length];
+
+}
+
+function typeWriter(text){
+
+const element = document.getElementById("reasonText");
+
+element.innerHTML = "";
+
+let i = 0;
+
+const interval = setInterval(() => {
+
+element.innerHTML += text.charAt(i);
+
+i++;
+
+if(i >= text.length){
+clearInterval(interval);
+}
+
+},35);
+
+}
+
+document.getElementById("fortuneBtn").addEventListener("click", () => {
+
+const sparkle = document.createElement("div");
+
+sparkle.className = "sparkle";
+sparkle.innerHTML = "💖";
+
+document.body.appendChild(sparkle);
+
+setTimeout(() => {
+sparkle.remove();
+},1000);
+
+document.getElementById("home").classList.add("hidden");
+
+setTimeout(() => {
+
+document.getElementById("fortunePage").classList.remove("hidden");
+
+typeWriter(getDailyReason());
+
+},500);
+
+});
+
+for(let i = 0; i < 140; i++){
+
+const heart = document.createElement("div");
+
+heart.className = "heart";
+
+heart.innerHTML =
+["💖","💕","💗","💓","💞","🌸","✨","🎀"]
+[Math.floor(Math.random()*8)];
+
+heart.style.left =
+Math.random()*100 + "vw";
+
+heart.style.fontSize =
+(12 + Math.random()*30) + "px";
+
+heart.style.animationDuration =
+(6 + Math.random()*12) + "s";
+
+heart.style.animationDelay =
+Math.random()*12 + "s";
+
+document.body.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
